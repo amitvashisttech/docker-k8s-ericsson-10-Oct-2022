@@ -58,3 +58,59 @@
    19  cd 02-Docker-Commands/
    20  ls
 ```
+
+# Demo 3 
+
+```
+27  cd ../; git add . ; git commit -m "02-Docker-Commands" ; git push
+   28  ls
+   29  docker images
+   30  docker run busybox echo "Hello World"
+   31  docker ps
+   32  docker container ls
+   33  docker container ls -a
+   34  docker run busybox echo "Hello World"
+   35  docker ps
+   36  docker ps -a
+   37  docker run --name test-1 busybox echo "Hello World"
+   38  docker ps -a
+   39  docker ps
+   40  docker ps -a
+   41  docker ps -aq
+   42  docker rm $(docker ps -aq)
+   43  docker ps
+   44  docker ps -a
+   45  docker run --name test-1 busybox echo "Hello World"
+   46  docker run -it --name testing-int-1 ubuntu:16.04
+   47  docker ps
+   48  docker ps -a
+   49  docker run -it --name testing-int-2 ubuntu:20.04
+   50  docker ps
+   51  docker ps -a
+   52  docker run -it --name testing-int-3 ubuntu:20.04
+   53  docker run -itd --name testing-int-4 ubuntu:20.04
+   54  docker run -itd --name testing-int-5 ubuntu:20.04
+   55  docker ps
+   56  docker stop testing-int-5
+   57  docker ps
+   58  docker ps -a
+   59  docker start testing-int-5
+   60  docker ps
+   61  docker attach testing-int-5
+   62  docker ps
+   63  docker inspect testing-int-5
+   64  docker ps
+   65  docker inspect testing-int-5
+   66  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' testing-int-5
+   67  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -q)
+   68  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -aq)
+   69  docker ps
+   70  docker exec -it testing-int-5 cat /etc/os-release
+   71  docker images
+   72  docker run -itd --name testing-int-6 ubuntu
+   73  docker run -itd --name testing-int-7 ubuntu:16.04
+   74  docker ps
+   75  docker exec -it testing-int-5 cat /etc/os-release
+   76  docker exec -it testing-int-6 cat /etc/os-release
+   77  docker exec -it testing-int-7 cat /etc/os-release
+```
