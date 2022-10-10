@@ -1,0 +1,35 @@
+# Demo 1 
+
+```
+    1  docker version 
+    2  systemctl status docker 
+    3  ls
+    4  docker images 
+    5  docker container ls 
+    6  docker container ls -a 
+    7  docker run busybox echo "Welcome to the world of Docker."
+    8  docker container ls 
+    9  docker container ls -a 
+   10  docker run busybox echo "Welcome to the world of Docker."
+   11  docker container ls -a 
+   12  docker run busybox echo "Hello World"
+   13  docker container ls -a 
+   14  ls
+   15  docker container ls
+   16  docker container ls -a
+   17  docker rm a3716305e06a
+   18  docker container ls -a
+   19  docker container ls -aq
+   20  docker rm  $(docker container ls -aq) 
+   21  docker container ls -a
+   22  ls
+   23  cd docker-k8s-ericsson-10-Oct-2022/
+   24  ls
+   25  cd 01-Docker/
+   26  ls
+   27  mkdir 02-Docker-Commands 
+   28  ls
+   29  cd 02-Docker-Commands/
+   30  ls
+   31  history > Day1_History.txt 
+```
