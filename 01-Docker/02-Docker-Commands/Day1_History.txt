@@ -33,3 +33,28 @@
    30  ls
    31  history > Day1_History.txt 
 ```
+
+# Demo 2
+
+```
+    1  docker pull ubuntu
+    2  docker images
+    3  docker pull amitvashist7/backend-app
+    4  docker images
+    5  docker pull ubuntu:16.04
+    6  docker images
+    7  docker pull amitvashist7/apache-ex4
+    8  docker login
+    9  docker pull amitvashist7/apache-ex4
+   10  docker images
+   11  docker pull ubuntu:20.04
+   12  docker images
+   13  ls
+   14  cd docker-k8s-ericsson-10-Oct-2022/
+   15  s
+   16  ls
+   17  cd 01-Docker/
+   18  ls
+   19  cd 02-Docker-Commands/
+   20  ls
+```
