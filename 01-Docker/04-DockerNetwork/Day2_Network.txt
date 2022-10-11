@@ -1,0 +1,29 @@
+305  git add . ; git commit -m "03-DockerFile" ; git push
+  306  curl 172.17.0.2:8080
+  307  docker network ls
+  308  docker ps
+  309  docker network inspect d4bc81d1e435
+  310  docker run -d --name test-4 amitvashist7/docker-k8s-ericsson-10-oct-2022
+  311  docker network inspect d4bc81d1e435
+  312  route -n
+  313  netstat -tulnp
+  314  docker run -d --name test-5 -p 80:8080 amitvashist7/docker-k8s-ericsson-10-oct-2022
+  315  docker ps
+  316  netstat -tulnp
+  317  systemctl  status docker
+  318  docker run -d --name test-6 -p 80:8080 amitvashist7/docker-k8s-ericsson-10-oct-2022
+  319  docker run -d --name test-7 -p 81:8080 amitvashist7/docker-k8s-ericsson-10-oct-2022
+  320  docker ps
+  321  netstat -tulnp
+  322  docker run -d --name test-8 -P amitvashist7/docker-k8s-ericsson-10-oct-2022
+  323  docker ps
+  324  docker images
+  325  docker inspect 8140dd605a37
+  326  docker images
+  327  docker run -d --name test-9 -P myapache:v5
+  328  docker ps
+  329  docker network inspect d4bc81d1e435
+  330  ls
+  331  mkdir 04-DockerNetwork
+  332  cd 04-DockerNetwork/
+
