@@ -28,3 +28,132 @@
   121  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -aq)
   122  curl 172.17.0.3
 ```
+
+## Demo 5:  Multi-Images & Docker Push and Pull
+
+```
+165  cd 01-Docker/03-DockerFile/apache/v1/
+  166  ls
+  167  cd ..
+  168  ls
+  169  cat v1/Dockerfile
+  170  s
+  171  ls
+  172  cp -rf v1 v2
+  173  ls
+  174  cd v2/
+  175  ls
+  176  vim index.html
+  177  ls
+  178  vim Dockerfile
+  179  ls
+  180  docker build -t myapache:v2 .
+  181  docker images
+  182  docker run -d --name test-apache-2 myapache:v2
+  183  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -aq)
+  184  curl 172.17.0.3
+  185  curl 172.17.0.4
+  186  curl -vv 172.17.0.4
+  187  ls
+  188  cd ..
+  189  ls
+  190  cp -rf v2 v3
+  191  s
+  192  ls
+  193  cd v3/
+  194  ls
+  195  vim ports.conf
+  196  ls
+  197  vim Dockerfile
+  198  ls
+  199  vim index.html
+  200  ls
+  201  docker build -t myapache:v3 .
+  202  docker run -d --name test-apache-3 myapache:v3
+  203  docker ps
+  204  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -aq)
+  205  curl -v 172.17.0.3
+  206  curl -v 172.17.0.4
+  207  curl -v 172.17.0.5
+  208  curl -v 172.17.0.5:8081
+  209  curl 172.17.0.5:8081
+  210  docker ps
+  211  docker inspect a98ba1034ae8
+  212  docker ps
+  213  docker inspect test-apache-3
+  214  ls
+  215  cd ..
+  216  ls
+  217  cp -rf v3 v4
+  218  ls
+  219  cd v4/
+  220  ls
+  221  vim Dockerfile
+  222  ls
+  223  docker build -t myapache:v4 .
+  224  docker run -d --name test-apache-4 myapache:v4
+  225  docker ps
+  226  curl 172.17.0.6:8081
+  227  ls
+  228  cd ..
+  229  ls
+  230  cp -rf v4 v5
+  231  ls
+  232  cd v5/
+  233  ls
+  234  vim Dockerfile
+  235  docker build -t myapache:v5 .
+  236  docker run -d --name test-apache-5 myapache:v5
+  237  docker ps
+  238  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -aq)
+  239  curl -vv 172.17.0.7
+  240  curl -vv 172.17.0.7:8081
+  241  ls
+  242  cd ..
+  243  ls
+  244  cp -rf v5 v6
+  245  ls
+  246  cd v6/
+  247  ls
+  248  vim index.html
+  249  vim ports.conf
+  250  ls
+  251  vim Dockerfile
+  252  ls
+  253  s
+  254  ls
+  255  mv Dockerfile amit-file
+  256  ls
+  257  docker build -t myapache:v6 .
+  258  ls
+  259  cat amit-file
+  260  docker build -t myapache:v6 -f amit-file .
+  261  docker images
+  262  docker run -d --name test-apache-6 myapache:v6
+  263  docker ps
+  264  curl -vv 172.17.0.8:8080
+  265  docker images
+  266  docker login
+  267  docker push myapache:v6
+  268  docker tag myapache:v6 amitvashist7/docker-k8s-ericsson-10-oct-2022:latest
+  269  docker tag myapache:v6 amitvashist7/docker-k8s-ericsson-10-oct-2022:v6
+  270  docker images
+  271  docker tag myapache:v5 amitvashist7/docker-k8s-ericsson-10-oct-2022:v5
+  272  docker images
+  273  docker push amitvashist7/docker-k8s-ericsson-10-oct-2022:v5
+  274  docker push amitvashist7/docker-k8s-ericsson-10-oct-2022:v6
+  275  docker push amitvashist7/docker-k8s-ericsson-10-oct-2022:latest
+  276  docker kill $(docker ps -qa)
+  277  docker images
+  278  docker rmi amitvashist7/docker-k8s-ericsson-10-oct-2022:v5
+  279  docker rmi amitvashist7/docker-k8s-ericsson-10-oct-2022:v6
+  280  docker rmi amitvashist7/docker-k8s-ericsson-10-oct-2022:lastest
+  281  docker images
+  282  docker rmi amitvashist7/docker-k8s-ericsson-10-oct-2022:latest
+  283  docker images
+  284  cd
+  285  docker run -d --name test-1 amitvashist7/docker-k8s-ericsson-10-oct-2022
+  286  docker run -d --name test-1123 amitvashist7/docker-k8s-ericsson-10-oct-2022
+  287  docker ps
+  288  curl 172.17.0.2:8080
+```
