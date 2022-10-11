@@ -88,18 +88,20 @@ kubeadm join 172.31.0.100:6443 --token mr74fn.m4upjko4cfm5uwmz --discovery-token
 
 ## Let check the kubernetes cluster nodes status & details
 ```
-root@k8s-master:~# kubectl get nodes 
-NAME            STATUS   ROLES    AGE     VERSION
-k8s-master      Ready    master   8m45s   v1.18.0
-k8s-worker-01   Ready    <none>   2m1s    v1.18.0
-k8s-worker-02   Ready    <none>   24s     v1.18.0
 
-root@k8s-master:~# kubectl get nodes -o wide 
-NAME            STATUS   ROLES    AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
-k8s-master      Ready    master   13m     v1.18.0   10.128.0.7    <none>        Ubuntu 16.04.7 LTS   4.15.0-1088-gcp   docker://20.10.0
-k8s-worker-01   Ready    <none>   6m24s   v1.18.0   10.128.0.8    <none>        Ubuntu 16.04.7 LTS   4.15.0-1088-gcp   docker://20.10.0
-k8s-worker-02   Ready    <none>   4m47s   v1.18.0   10.128.0.9    <none>        Ubuntu 16.04.7 LTS   4.15.0-1088-gcp   docker://20.10.0
-root@k8s-master:~# 
+root@master:~# kubectl  get nodes
+NAME      STATUS   ROLES                  AGE     VERSION
+master    Ready    control-plane,master   9m56s   v1.21.0
+worker1   Ready    <none>                 5m49s   v1.21.0
+worker2   Ready    <none>                 5m      v1.21.0
+root@master:~# kubectl  get nodes
 
+
+root@master:~# kubectl  get nodes -o wide
+NAME      STATUS   ROLES                  AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+master    Ready    control-plane,master   9m59s   v1.21.0   172.31.0.100   <none>        Ubuntu 16.04.7 LTS   4.4.0-210-generic   docker://17.3.3
+worker1   Ready    <none>                 5m52s   v1.21.0   172.31.0.101   <none>        Ubuntu 16.04.7 LTS   4.4.0-210-generic   docker://17.3.3
+worker2   Ready    <none>                 5m3s    v1.21.0   172.31.0.102   <none>        Ubuntu 16.04.7 LTS   4.4.0-210-generic   docker://17.3.3
+root@master:~#
 ```
 
