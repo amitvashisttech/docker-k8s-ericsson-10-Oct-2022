@@ -1,0 +1,30 @@
+## Demo 4 : Docker File & Images 
+
+```
+ 97  mkdir 03-DockerFile/apache/v1 -p
+   98  ls
+   99  cd 03-DockerFile/apache/v1/
+  100  s
+  101  ls
+  102  vim Dockerfile
+  103  docker run -it ubuntu:16.04
+  104  ls
+  105  cat Dockerfile
+  106  ls
+  107  docker build -t myapache:v1 .
+  108  docker images
+  109  docker ps
+  110  docker kill $(docker ps -qa)
+  111  docker rn $(docker ps -qa)
+  112  docker rm $(docker ps -qa)
+  113  docker run -d --name test-1  ubuntu:16.04
+  114  docker ps
+  115  docker ps -a
+  116  docker run -itd --name test-2  ubuntu:16.04
+  117  docker ps
+  118  docker images
+  119  docker run -d --name test-apache-1 myapache:v1
+  120  docker ps
+  121  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' $(docker ps -aq)
+  122  curl 172.17.0.3
+```
