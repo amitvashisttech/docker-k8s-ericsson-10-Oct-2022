@@ -37,10 +37,13 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 sleep 1 
 
 echo "******************* Deploying kubernetes - Calico Network ***********************"
-kubectl apply -f calico.yaml
+#kubectl apply -f calico.yaml
 #kubectl apply -f https://docs.projectcalico.org/archive/v3.13/manifests/calico.yaml
 
 #kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml
+kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
 
 # DigitalOcean without firewall (IP-in-IP allowed) - or any other cloud / on-prem that supports IP-in-IP traffic
 # kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
