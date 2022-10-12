@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-multi-deployment
+  labels:
+    app: helloworld-multi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld-multi
+  template:
+    metadata:
+      labels:
+        app: helloworld-multi
+    spec:
+      containers:
+      - name: k8s-demo
+        image: amitvashist7/k8s-tiny-web
+        ports:
+        - name: nodejs-port
+          containerPort: 80
+      nodeSelector:
+        hardware: virtual
+        env: prod
+
